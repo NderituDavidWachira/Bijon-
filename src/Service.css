@@ -1,6 +1,6 @@
-/* Service.css */
+/* src/Service.css */
 
-/* --- Wrapper --- */
+/* --- 1. Page Wrapper --- */
 .services-page-wrapper {
   padding: 0;
   /* UPDATED: Increased overlay darkness (0.9) so background image is barely visible */
@@ -13,11 +13,10 @@
   padding-bottom: 80px;
 }
 
-/* --- Header Section --- */
+/* --- 2. Header Section --- */
 .svc-header {
   position: relative;
   width: 100%;
-  /* UPDATED: Increased height slightly as requested (from 220px to 320px) */
   height: 320px; 
   display: flex;
   flex-direction: column;
@@ -48,10 +47,10 @@
   left: 0;
   width: 100%;
   height: 100%;
-  /* UPDATED: Darkened overlay (0.85) so video is "not visible so much" */
   background-color: rgba(0, 0, 0, 0.65); 
   z-index: 1;
 }
+
 /* Header Text Content */
 .svc-header-content {
   position: relative;
@@ -77,27 +76,26 @@
   text-shadow: 0 1px 3px rgba(0,0,0,0.8);
 }
 
-/* --- Content Container --- */
+/* --- 3. Content Container --- */
 .svc-content-container {
   max-width: 1300px;
   margin: 0 auto;
   padding: 0 40px;
   position: relative;
   z-index: 10;
-  /* Adjusted margin for the new height */
   margin-top: -60px; 
 }
 
-/* --- Main Grid Layout --- */
+/* --- 4. Main Grid Layout --- */
 .svc-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
+  justify-content: center; /* Helps center grid items if they don't fill row */
 }
 
-/* --- Service Card Styling --- */
+/* --- 5. Service Card Styling --- */
 .svc-card {
-  /* Semi-transparent white background */
   background: rgba(255, 255, 255, 0.9); 
   backdrop-filter: blur(5px); 
   border-radius: 20px;
@@ -109,6 +107,8 @@
   flex-direction: column;
   align-items: center;
   transition: transform 0.3s ease, background 0.3s ease;
+  width: 100%; /* Ensures card takes available space */
+  box-sizing: border-box; /* Ensures padding doesn't affect width */
 }
 
 .svc-card:hover {
@@ -169,7 +169,7 @@
   border-color: #d35400;
 }
 
-/* --- Detailed View Styling --- */
+/* --- 6. Inner Detail Page Styling --- */
 .svc-detail-view {
   background: white; 
   padding: 40px;
@@ -249,8 +249,7 @@
   gap: 8px;
 }
 
-/* --- Floating Social Icons (NEW) --- */
-/* To work, apply className="floating-social-bar" to container */
+/* --- 7. Floating Social Icons --- */
 .floating-social-bar {
   position: fixed;
   right: 20px;
@@ -262,7 +261,6 @@
   z-index: 1000;
 }
 
-/* To work, apply className="floating-icon [type]" to links */
 .floating-icon {
   width: 50px;
   height: 50px;
@@ -274,7 +272,7 @@
   box-shadow: 0 4px 6px rgba(0,0,0,0.3);
   cursor: pointer;
   text-decoration: none;
-  color: white; /* Important so icons are white */
+  color: white; 
   transition: transform 0.3s ease;
 }
 
@@ -287,9 +285,11 @@
 
 
 /* --- Responsive --- */
+/* --- Responsive --- */
 @media (max-width: 1024px) {
   .svc-grid {
     grid-template-columns: repeat(2, 1fr);
+    justify-content: center; 
   }
 }
 
@@ -310,22 +310,53 @@
 
   .svc-content-container {
     margin-top: -30px; 
-    padding: 20px;
+    padding: 0 15px; /* Reduced from 20px to save space */
+    width: 100%;
+    box-sizing: border-box;
   }
 
+  /* --- MAIN SERVICES PAGE FIXES --- */
   .svc-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    gap: 30px;
+  }
+  
+  .svc-card {
+    width: 100%;
+    max-width: 400px; 
   }
 
-  /* --- Mobile: Make Floating Icons Smaller --- */
+  /* --- INNER DETAIL PAGE FIXES (This fixes your screenshot) --- */
+  .svc-detail-view {
+    padding: 20px 15px; /* Reduced heavily from 40px so content fits */
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .svc-sub-grid {
+    /* Switch from auto-fill minmax to a simple 1-column layout for mobile */
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 25px;
+    width: 100%;
+  }
+
+  .svc-sub-card {
+    width: 100%; /* Ensure card doesn't overflow */
+    margin: 0 auto;
+  }
+
+  /* --- FLOATING ICONS --- */
   .floating-social-bar {
-    right: 10px; /* Move closer to edge */
-    gap: 10px;   /* Reduce gap */
+    right: 10px; 
+    gap: 10px;   
   }
 
   .floating-icon {
-    width: 35px;  /* Smaller Width */
-    height: 35px; /* Smaller Height */
-    font-size: 16px; /* Smaller Icon Font */
+    width: 35px;  
+    height: 35px; 
+    font-size: 16px; 
   }
 }
