@@ -14,7 +14,7 @@ export const servicesData = [
       { name: "Staff Uniforms", desc: "Professional uniforms for staff.", images: ["/images/appeal.jpg", "/images/uni.jpg","/images/uniform.jpg"] },
       { name: "Promotional Wear", desc: "T-shirts and caps for events.", images: ["/images/cap.jpeg", "/images/appl.jpeg"] },
       { name: "Protective Gear", desc: "Branded safety vests & helmets.", images: ["/images/Protective1.jpeg", "/images/protective.jpg"] },
-      { name: "Sports Kits", desc: "Full sports team jerseys.", images: ["/images/sport.jpg", "/images/sport.jpg"] }
+      { name: "Sports Kits", desc: "Full sports team jerseys.", images: ["/images/sport.jpg", "/images/Sportskits.jpg", "/images/Sportskit.jpg"] }
     ]
   },
   {
@@ -23,9 +23,9 @@ export const servicesData = [
     description: "Make a bold statement with 3D signs, lightboxes, and custom fabrication for your business.",
     icon: <FaTools />,
     items: [
-      { name: "3D Signs", desc: "Illuminated 3D channel letters.", images: ["/images/shop-front-signage.jpeg", "/images/3d.jpg"] },
-      { name: "Light Boxes", desc: "Eye-catching displays.", images: ["/images/light.jpeg", "/images/light.jpeg"] },
-      { name: "Office Signage", desc: "Door & reception signs.", images: ["/images/off.jpeg", "/images/off.jpeg"] },
+      { name: "3D Signs", desc: "Illuminated 3D channel letters.", images: ["/images/shop-front-signage.jpeg", "/images/3d.jpg","/images/3Dsigb.jpg"] },
+      { name: "Light Boxes", desc: "Eye-catching displays.", images: ["/images/light.jpeg", "/images/3Dsign.jpg","/images/3Dsigns.jpg"] },
+      { name: "Office Signage", desc: "Door & reception signs.", images: ["/images/Office signage.jpg", "/images/Officesignag.jpg","/images/Officesignage.jpg" , "/images/Officesignage.jpg"] },
       { name: "Roadside Billboards", desc: "Large format structures.", images: ["/images/rd.jpeg", "/images/rd.jpeg"] },
       { name: "Directional Signs", desc: "Wayfinding guides.", images: ["/images/direction.jpeg", "/images/direction.jpeg"] }
     ]
@@ -53,7 +53,7 @@ export const servicesData = [
       { name: "Business Cards", desc: "Matte, gloss, or textured cards.", images: ["/images/Business.jpg", "/images/businesss.jpg"] },
       { name: "Wedding Cards", desc: "Custom invitation cards.", images: ["/images/wedding.jpeg", "/images/wedding.jpg"] },
       { name: "Flyers & Brochures", desc: "Vibrant marketing materials.", images: ["/images/shop-frontage.jpeg", "/images/shop-frontage.jpeg"] },
-      { name: "Receipt Books", desc: "NCR books for records.", images: ["/images/-front-signage.jpeg", "/images/-front-signage.jpeg"] }
+      { name: "Receipt Books", desc: "NCR books for records.", images: ["/images/book.jpg", "/images/Rece.jpg",  "/images/recept.jpg"] }
     ]
   },
   {
@@ -66,8 +66,8 @@ export const servicesData = [
       { name: "Direct to Film (DTF)", desc: "Heat transfer prints for fabrics.", images: ["/images/larges.jpeg", "/images/larges.jpeg"] },
       { name: "Large Format", desc: "Banners & stickers.", images: ["/images/large.jpeg", "/images/large.jpeg"] },
       { name: "Laser Engraving", desc: "Etching on metal & wood.", images: ["/images/shop-front-signage.jpeg", "/images/shop-front-signage.jpeg"] },
-      { name: "Sublimation", desc: "Mugs, plates & polyester.", images: ["/images/Sublimation.jpeg", "/images/friend.jpg"] },
-      { name: "Promotional Items", desc: "Event giveaways.", images: ["/images/give.jpeg", "/images/away.jpg"] }
+      { name: "Sublimation", desc: "Mugs, plates & polyester.", images: ["/images/Sublimation.jpeg", "/images/friend.jpg", "/images/sublimation.jpg"] },
+      { name: "Promotional Items", desc: "Event giveaways.", images: ["/images/give.jpeg", "/images/away.jpg","/images/Promotional.jpg"] }
     ]
   },
   {

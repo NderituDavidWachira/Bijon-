@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Helmet } from 'react-helmet-async'; // <--- ADDED SEO IMPORT
 import { 
   FaWhatsapp, FaInstagram, FaTiktok, FaFacebookF,
   FaTshirt, FaTools, FaBuilding, FaPrint, FaLayerGroup, FaPaintBrush, FaCheck, FaPlay, FaPause
@@ -114,7 +115,7 @@ const HeroSlider = () => {
               </motion.h1>
               <motion.p 
                 initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.9, duration: 0.8 }}>
-                {currentSlide.subtitle}
+              {currentSlide.subtitle}
               </motion.p>
               
               <motion.div className="hero-buttons" 
@@ -165,17 +166,62 @@ const WelcomeSection = () => {
   );
 };
 
-// --- COMPONENT: SERVICES ---
+// --- COMPONENT: SERVICES (UPDATED WITH LONG PRESS) ---
 const ServicesSection = () => {
+  // Ref to hold the timer ID
+  const timerRef = useRef(null);
+
+  // Function to handle the start of a press
+  const handlePressStart = (slug) => {
+    timerRef.current = setTimeout(() => {
+      // Logic executed after 800ms
+      const linkToCopy = `${window.location.origin}/services/${slug}`;
+      
+      navigator.clipboard.writeText(linkToCopy)
+        .then(() => {
+          alert(`Link copied to clipboard: ${linkToCopy}`);
+        })
+        .catch((err) => {
+          console.error('Failed to copy text: ', err);
+        });
+    }, 800); // 800ms threshold for long press
+  };
+
+  // Function to clear the timer if released early
+  const handlePressEnd = () => {
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+      timerRef.current = null;
+    }
+  };
+
   return (
     <div className="home-services-section">
       <div className="section-header">
         <h2>Core Services</h2>
-        <p>Explore our wide range of branding and printing solutions.</p>
+        <p>Explore our wide range of branding and printing solutions. <br/></p>
       </div>
       <div className="cards-grid">
         {servicesData.map((service) => (
-          <div key={service.id} className="service-card" style={{ backgroundImage: `url(${service.image})` }}>
+          <div 
+            key={service.id} 
+            className="service-card" 
+            style={{ 
+                backgroundImage: `url(${service.image})`,
+                // Disable default context menu on mobile so long press works for us
+                touchAction: 'manipulation',
+                userSelect: 'none'
+            }}
+            // Mouse Events (Desktop)
+            onMouseDown={() => handlePressStart(service.slug)}
+            onMouseUp={handlePressEnd}
+            onMouseLeave={handlePressEnd}
+            // Touch Events (Mobile)
+            onTouchStart={() => handlePressStart(service.slug)}
+            onTouchEnd={handlePressEnd}
+            // Prevent default context menu on long press
+            onContextMenu={(e) => e.preventDefault()}
+          >
             <div className="card-overlay">
               <div className="card-content">
                 <div className="card-icon">{service.icon}</div>
@@ -221,13 +267,10 @@ const VideoCard = ({ item }) => {
         muted 
         playsInline 
         className="portfolio-video-bg"
-        // Removed autoPlay so it waits for click
       >
         <source src="/hero.video.mp4" type="video/mp4" />
       </video>
 
-      {/* Only show overlay if NOT playing, or show a pause icon on hover? 
-          For simple "click to play", we hide the main overlay when playing */}
       <div className={`portfolio-overlay ${isPlaying ? 'playing' : ''}`}>
         <div className="play-button">
           {isPlaying ? <FaPause /> : <FaPlay />}
@@ -260,7 +303,6 @@ const PortfolioSection = () => {
         </div>
         
         <div style={{textAlign: 'center', marginTop: '40px'}}>
-             {/* UPDATED: FIXED TO OPEN PDF CORRECTLY */}
              <a 
                 href="/profile.pdf" 
                 target="_blank" 
@@ -275,7 +317,6 @@ const PortfolioSection = () => {
   );
 };
 
-// --- MAIN HOME COMPONENT ---
 const Home = () => {
 
   useEffect(() => {
@@ -295,6 +336,13 @@ const Home = () => {
   return (
     <div style={{ position: 'relative', minHeight: '100vh', backgroundColor: '#f9f9f9' }}>
       
+      {/* --- SEO TAGS ADDED HERE --- */}
+      <Helmet>
+        <title>Bijon Brand Africa | Top Branding Company in Kenya</title>
+        <meta name="description" content="Bijon Brand Africa is a leading branding company in Kenya specializing in logo design, corporate identity, vehicle branding, and digital printing services in Nairobi." />
+        <link rel="canonical" href="https://bijonbrandafrica.com/" />
+      </Helmet>
+
       {/* CSS STYLES */}
       <style>{`
         /* --- GLOBAL & HERO --- */
@@ -356,11 +404,9 @@ const Home = () => {
         .portfolio-overlay { position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.4); display: flex; flex-direction: column; justify-content: center; align-items: center; transition: 0.3s; z-index: 2; }
         .portfolio-card:hover .portfolio-overlay { background: rgba(0,0,0,0.6); }
         
-        /* When playing, hide the dark overlay almost completely so video is clear, but keep button visible on hover if needed? 
-           Actually, we'll make the overlay transparent when playing, but if you want to pause you click anywhere. */
         .portfolio-overlay.playing { background: rgba(0,0,0,0); }
         .portfolio-overlay.playing .play-button { opacity: 0; }
-        .portfolio-overlay.playing:hover .play-button { opacity: 1; } /* Show pause button on hover */
+        .portfolio-overlay.playing:hover .play-button { opacity: 1; }
         
         .play-button { width: 60px; height: 60px; border-radius: 50%; background: rgba(255,255,255,0.2); border: 2px solid #fff; display: flex; justify-content: center; align-items: center; color: #fff; font-size: 1.2rem; margin-bottom: 20px; transition: 0.3s; }
         .portfolio-card:hover .play-button { background: #fca311; border-color: #fca311; transform: scale(1.1); }

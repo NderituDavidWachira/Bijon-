@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+// Ensure these are installed in your package.json: react-router-dom, react-icons
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { 
   FaInstagram, FaWhatsapp, FaBars, FaTimes, FaMapMarkerAlt, 
@@ -6,10 +7,12 @@ import {
 } from 'react-icons/fa';
 
 import './App.css';
-import logoImage from './assets/Images/Bijon Logo.jpg';
 
-// IMPORT PAGES
-import Home from './Home';      
+// Ensure your image path is correct relative to this file
+import logoImage from './assets/Images/Bijon Logo.jpg'; 
+
+// Import your page components
+import Home from './Home';       
 import About from './About';    
 import Services from './Services';       
 import ServiceDetail from './ServiceDetail'; 
@@ -18,34 +21,110 @@ import Contact from './Contact';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-
-  
+   
   const isActive = (path) => location.pathname === path || location.pathname.startsWith(path + '/');
 
   return (
     <header className="navbar">
-      <div className="navbar-top">
-        <div className="top-left">
-          <span><FaPhoneAlt /> +254 722 210279</span>
-          <span><FaEnvelope /> info@bijonbrandafrica.com</span>
-        </div>
-        <div className="top-right"></div>
-      </div>
-
-      <div className="navbar-main">
-        <div className="logo">
-          <Link to="/" onClick={() => setIsOpen(false)} style={{textDecoration:'none', color:'inherit', display:'flex', alignItems:'center'}}>
+      <div className="navbar-main" style={{ padding: '0px 20px', height: '80px', display: 'flex', alignItems: 'center' }}>
+        <div className="logo" style={{ height: '100%', display: 'flex', alignItems: 'center' }}>
+          <Link to="/" onClick={() => setIsOpen(false)} style={{textDecoration:'none', display:'flex', alignItems:'center', height: '100%'}}>
             <img 
               src={logoImage} 
               alt="Bijon Brand Logo" 
               className="logo-img" 
-              style={{ marginRight: '10px' }}
+              style={{ marginRight: '15px', height: '70px', width: 'auto' }} 
             />
-             BIJON BRAND AFRICA
+            
+            {/* --- HEADER TEXT CONTAINER --- */}
+            {/* 1. We set width to 'max-content' so the container shrinks to fit the widest item (the Email). */}
+            {/* 2. We use flex column to stack the rows. */}
+            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: 'max-content' }}>
+                
+                {/* ROW 1: BiJON */}
+                {/* 'justify-content: space-between' forces the letters to touch the Left and Right edges exactly. */}
+                <div style={{ 
+                    display: 'flex', 
+                    justifyContent: 'space-between',
+                    width: '100%', 
+                    fontSize: '36px', 
+                    fontWeight: '900', 
+                    lineHeight: '0.8', 
+                    color: '#fff', 
+                    textTransform: 'uppercase',
+                    marginBottom: '4px'
+                }}>
+                    <span>B</span>
+                    <span>i</span>
+                    <span>J</span>
+                    <span>O</span>
+                    <span>N</span>
+                </div>
+                
+                {/* ROW 2: BRAND AFRICA LTD */}
+                {/* Spaced by word to fill the width */}
+                <div style={{ 
+                    display: 'flex', 
+                    justifyContent: 'space-between',
+                    width: '100%',
+                    fontSize: '11px', 
+                    fontWeight: '700', 
+                    textTransform: 'uppercase',
+                    color: '#fff',
+                    lineHeight: '1',
+                    marginBottom: '6px',
+                    whiteSpace: 'nowrap'
+                }}>
+                    <span>BRAND</span>
+                    <span>AFRICA</span>
+                    <span>LTD.</span>
+                </div>
+
+                {/* ROW 3: Phone Number */}
+                {/* To make the phone number end at the exact same point as the email, 
+                    we treat it as a flex row and space the segments out slightly. */}
+                <div style={{ 
+                    display: 'flex', 
+                    justifyContent: 'space-between', 
+                    alignItems: 'center',
+                    width: '100%',
+                    fontSize: '10px', 
+                    color: '#fff', 
+                    fontWeight: '500',
+                    lineHeight: '1.2',
+                    marginBottom: '2px'
+                }}>
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+                        <FaPhoneAlt size={9} /> +254
+                    </span>
+                    <span>722</span>
+                    <span>210</span>
+                    <span>279</span>
+                </div>
+
+                {/* ROW 4: Email */}
+                {/* This is the "Anchor". It sets the natural width of the container. 
+                    Everything else stretches to match this line. */}
+                <div style={{ 
+                    display: 'flex', 
+                    alignItems: 'center',
+                    width: '100%',
+                    fontSize: '10px', 
+                    color: '#fff', 
+                    fontWeight: '500',
+                    lineHeight: '1.2'
+                }}>
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '5px', whiteSpace: 'nowrap' }}>
+                        <FaEnvelope size={9} /> info@bijonbrandafrica.com
+                    </span>
+                </div>
+
+            </div>
+
           </Link>
         </div>
 
-        <div className={`nav-links ${isOpen ? 'open' : ''}`}>
+        <div className={`nav-links ${isOpen ? 'open' : ''}`} style={{ marginLeft: 'auto' }}>
           <Link 
             to="/" 
             className={location.pathname === '/' ? 'active' : ''} 
@@ -62,7 +141,6 @@ const Navbar = () => {
             About Bijon
           </Link>
 
-          {/* UPDATED LINK TO /services */}
           <Link 
             to="/services" 
             className={isActive('/services') ? 'active' : ''} 
@@ -120,7 +198,6 @@ const Footer = () => {
 
         <div className="footer-col">
           <h4>Quick Links</h4>
-          {/* UPDATED LINKS TO SPECIFIC SERVICE PAGES */}
           <ul className="footer-links">
             <li className="update"><Link to="/services/apparel-uniforms" onClick={handleLinkClick}>Apparel & Uniforms</Link></li>
             <li className="update"><Link to="/services/signage-fabrication" onClick={handleLinkClick}>Signage & Fabrication</Link></li>
@@ -135,7 +212,7 @@ const Footer = () => {
           <h4>Locate Us</h4>
           <p><FaMapMarkerAlt /> Jethwa Mansion, Kilome Rd.</p>
           <p><FaEnvelope /> info@bijonbrandafrica.com</p>
-          <p><FaPhoneAlt /> +254 722 210279</p>
+          <p><FaPhoneAlt /> +254 722 210 279</p>
         </div>
       </div>
       <div className="footer-bottom">
@@ -161,19 +238,10 @@ function App() {
       <div className="App">
         <Navbar />
         <Routes>
-          {/* LANDING PAGE */}
           <Route path="/" element={<Home />} />
-          
-          {/* ABOUT PAGE */}
           <Route path="/about" element={<About />} />
-          
-          {/* SERVICES MAIN GRID PAGE */}
           <Route path="/services" element={<Services />} />
-          
-          {/* DYNAMIC SERVICE DETAIL PAGE (e.g., /services/apparel-uniforms) */}
           <Route path="/services/:slug" element={<ServiceDetail />} />
-          
-          {/* CONTACT PAGE */}
           <Route path="/contact" element={<Contact />} />
         </Routes>
         <Footer />
