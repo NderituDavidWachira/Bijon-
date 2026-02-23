@@ -471,7 +471,6 @@ ul {
   color: var(--primary);
 }
 
-/* --- MOVED FOOTER BOTTOM HERE (GLOBAL SCOPE) --- */
 .footer-bottom {
   text-align: center;
   border-top: 1px solid #333;
@@ -479,7 +478,7 @@ ul {
   font-size: 0.8rem;
 }
 
-/* Targets the Paragraph */
+
 .footer-bottom p {
   display: inline-block; 
   margin: 5px 10px;      
@@ -487,14 +486,12 @@ ul {
   transition: all 0.3s ease;
 }
 
-/* Hover Effect for Paragraph/Link */
 .footer-bottom p:hover,
 .footer-bottom p a:hover {
   color: var(--primary); 
   text-decoration: underline;
 }
 
-/* --- RESPONSIVE --- */
 @media (max-width: 1024px) {
   .partners-grid {
     grid-template-columns: repeat(3, 1fr);

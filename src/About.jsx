@@ -48,10 +48,10 @@ const About = () => {
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         .hero-static {
           position: relative;
-          min-height: 80vh; /* Adjust height as needed */
+          min-height: 80vh;
           background-size: cover;
           background-position: center;
-          background-attachment: fixed; /* Parallax effect */
+          background-attachment: fixed; 
           display: flex;
           align-items: center;
           color: #fff;
@@ -69,7 +69,7 @@ const About = () => {
 
         .hero-split-layout {
           position: relative;
-          z-index: 2; /* Ensures content sits ON TOP of overlay */
+          z-index: 2; 
           display: flex;
           align-items: center;
           justify-content: space-between;
