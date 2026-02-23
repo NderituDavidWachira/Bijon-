@@ -1,9 +1,7 @@
-/* src/Service.css */
 
-/* --- 1. Page Wrapper --- */
 .services-page-wrapper {
   padding: 0;
-  /* UPDATED: Increased overlay darkness (0.9) so background image is barely visible */
+ 
   background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url("/images/back.jpeg");
   background-size: cover;
   background-position: center;
@@ -13,7 +11,6 @@
   padding-bottom: 80px;
 }
 
-/* --- 2. Header Section --- */
 .svc-header {
   position: relative;
   width: 100%;
@@ -26,8 +23,6 @@
   text-align: center;
   padding-bottom: 30px; 
 }
-
-/* Video Background */
 .svc-video-bg {
   position: absolute;
   top: 50%;
@@ -40,7 +35,6 @@
   pointer-events: none;
 }
 
-/* Dark Overlay */
 .svc-overlay {
   position: absolute;
   top: 0;
@@ -51,7 +45,6 @@
   z-index: 1;
 }
 
-/* Header Text Content */
 .svc-header-content {
   position: relative;
   z-index: 2;
@@ -64,7 +57,7 @@
   font-family: 'Times New Roman', Times, serif;
   font-size: 3.2rem; 
   font-weight: bold;
-  color: #d35400; /* Orange Title */
+  color: #d35400; 
   margin-bottom: 10px;
   text-shadow: 0 2px 4px rgba(0,0,0,0.8);
 }
@@ -76,7 +69,6 @@
   text-shadow: 0 1px 3px rgba(0,0,0,0.8);
 }
 
-/* --- 3. Content Container --- */
 .svc-content-container {
   max-width: 1300px;
   margin: 0 auto;
@@ -86,15 +78,14 @@
   margin-top: -60px; 
 }
 
-/* --- 4. Main Grid Layout --- */
+
 .svc-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
-  justify-content: center; /* Helps center grid items if they don't fill row */
+  justify-content: center;
 }
 
-/* --- 5. Service Card Styling --- */
 .svc-card {
   background: rgba(255, 255, 255, 0.9); 
   backdrop-filter: blur(5px); 
@@ -107,8 +98,8 @@
   flex-direction: column;
   align-items: center;
   transition: transform 0.3s ease, background 0.3s ease;
-  width: 100%; /* Ensures card takes available space */
-  box-sizing: border-box; /* Ensures padding doesn't affect width */
+  width: 100%; 
+  box-sizing: border-box; 
 }
 
 .svc-card:hover {
@@ -116,7 +107,6 @@
   background: rgba(255, 255, 255, 0.95); 
 }
 
-/* Icon Wrapper */
 .svc-icon-wrapper {
   width: 90px;
   height: 90px;
@@ -131,7 +121,6 @@
   color: #d35400;
 }
 
-/* Card Typography */
 .svc-card h3 {
   font-family: 'Times New Roman', Times, serif;
   font-size: 1.6rem;
@@ -147,7 +136,6 @@
   line-height: 1.6;
 }
 
-/* Button */
 .svc-btn-explore {
   background: #d35400;
   color: #000;
@@ -169,7 +157,6 @@
   border-color: #d35400;
 }
 
-/* --- 6. Inner Detail Page Styling --- */
 .svc-detail-view {
   background: white; 
   padding: 40px;
@@ -249,7 +236,6 @@
   gap: 8px;
 }
 
-/* --- 7. Floating Social Icons --- */
 .floating-social-bar {
   position: fixed;
   right: 20px;
@@ -276,16 +262,12 @@
   transition: transform 0.3s ease;
 }
 
-/* Specific Colors */
 .icon-whatsapp { background-color: #25D366; }
 .icon-facebook { background-color: #1877F2; }
 .icon-instagram { background-color: #C13584; }
 .icon-tiktok { background-color: #000000; }
 .icon-chat { background-color: #4A90E2; }
 
-
-/* --- Responsive --- */
-/* --- Responsive --- */
 @media (max-width: 1024px) {
   .svc-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -310,12 +292,11 @@
 
   .svc-content-container {
     margin-top: -30px; 
-    padding: 0 15px; /* Reduced from 20px to save space */
+    padding: 0 15px;
     width: 100%;
     box-sizing: border-box;
   }
 
-  /* --- MAIN SERVICES PAGE FIXES --- */
   .svc-grid {
     display: flex;
     flex-direction: column;
@@ -328,15 +309,13 @@
     max-width: 400px; 
   }
 
-  /* --- INNER DETAIL PAGE FIXES (This fixes your screenshot) --- */
   .svc-detail-view {
-    padding: 20px 15px; /* Reduced heavily from 40px so content fits */
+    padding: 20px 15px; 
     width: 100%;
     box-sizing: border-box;
   }
 
   .svc-sub-grid {
-    /* Switch from auto-fill minmax to a simple 1-column layout for mobile */
     display: grid;
     grid-template-columns: 1fr; 
     gap: 25px;
@@ -344,11 +323,10 @@
   }
 
   .svc-sub-card {
-    width: 100%; /* Ensure card doesn't overflow */
+    width: 100%; 
     margin: 0 auto;
   }
 
-  /* --- FLOATING ICONS --- */
   .floating-social-bar {
     right: 10px; 
     gap: 10px;   

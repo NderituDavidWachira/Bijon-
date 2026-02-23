@@ -11,13 +11,11 @@ const Contact = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
     >
-      {/* Header */}
       <div className={styles.contactHeader}>
         <h1>Contact Us</h1>
         <p>Reach out to our team for inquiries, support, or collaborations.</p>
       </div>
 
-      {/* Contact cards */}
       <div className={styles.contactCards}>
         <div className={styles.contactCard}>
           <div className={styles.iconCircle}><FaMapMarkerAlt /></div>
@@ -36,7 +34,6 @@ const Contact = () => {
         </div>
       </div>
 
-      {/* Map */}
       <div className={styles.mapContainer}>
         <iframe 
           title="Jethwa Mansion Location"

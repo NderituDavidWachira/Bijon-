@@ -1,4 +1,4 @@
-// src/Services.jsx
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
@@ -9,7 +9,6 @@ const Services = () => {
   return (
     <div className="services-page-wrapper">
       
-      {/* HEADER SECTION WITH VIDEO */}
       <div className="svc-header">
         <video 
           autoPlay 
@@ -28,15 +27,12 @@ const Services = () => {
           <p>We are a responsive company constituted as a quality center of creative and innovative designs, quality printing, branding and general supplies.</p>
         </div>
       </div>
-
-      {/* WHITE CARDS GRID */}
       <div className="svc-content-container">
         <div className="svc-grid">
           
           {servicesData.map((service) => (
             <div className="svc-card" key={service.id}>
               
-              {/* Circular Icon */}
               <div className="svc-icon-wrapper">
                 {service.icon}
               </div>

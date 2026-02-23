@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap');
 
-/* ===== RESET ===== */
 *,
 *::before,
 *::after {
@@ -9,7 +8,7 @@
   padding: 0;
 }
 
-/* ===== GLOBAL BODY ===== */
+
 body {
   font-family: 'Poppins', sans-serif;
   background-color: #ffffff;
@@ -18,7 +17,6 @@ body {
   overflow-x: hidden;
 }
 
-/* ===== TYPOGRAPHY ===== */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display', serif;
   font-weight: 700;

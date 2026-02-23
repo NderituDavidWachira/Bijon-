@@ -1,17 +1,16 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Helmet } from 'react-helmet-async'; // <--- ADDED SEO IMPORT
+//import { Helmet } from 'react-helmet-async';
 import { 
   FaWhatsapp, FaInstagram, FaTiktok, FaFacebookF,
   FaTshirt, FaTools, FaBuilding, FaPrint, FaLayerGroup, FaPaintBrush, FaCheck, FaPlay, FaPause
 } from 'react-icons/fa';
 
-// --- DATA: HERO SLIDES ---
 const heroSlides = [
   {
     id: 1,
-    image: "/images/slide1.jpeg", 
+    image: "/images/slide1.jp", 
     badge: "CORPORATE EVENT BRANDING",
     title: "BRANDING THAT COMMANDS ATTENTION",
     subtitle: "Trusted by premier institutions to deliver flawless on-site branding and large-format visibility where it matters most."
@@ -65,14 +64,14 @@ const servicesData = [
   }
 ];
 
-// --- DATA: PORTFOLIO ---
+
 const portfolioData = [
   { id: 1, title: "3D Signage Installation", category: "Fabrication" },
   { id: 2, title: "Vehicle Fleet Branding", category: "Branding" },
   { id: 3, title: "Bulk T-Shirt Printing", category: "Apparel" },
 ];
 
-// --- COMPONENT: HERO SLIDER ---
+
 const HeroSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -138,7 +137,6 @@ const HeroSlider = () => {
   );
 };
 
-// --- COMPONENT: WELCOME ---
 const WelcomeSection = () => {
   return (
     <div className="welcome-section">
@@ -166,15 +164,14 @@ const WelcomeSection = () => {
   );
 };
 
-// --- COMPONENT: SERVICES (UPDATED WITH LONG PRESS) ---
 const ServicesSection = () => {
-  // Ref to hold the timer ID
+
   const timerRef = useRef(null);
 
-  // Function to handle the start of a press
+  
   const handlePressStart = (slug) => {
     timerRef.current = setTimeout(() => {
-      // Logic executed after 800ms
+   
       const linkToCopy = `${window.location.origin}/services/${slug}`;
       
       navigator.clipboard.writeText(linkToCopy)
@@ -184,10 +181,9 @@ const ServicesSection = () => {
         .catch((err) => {
           console.error('Failed to copy text: ', err);
         });
-    }, 800); // 800ms threshold for long press
+    }, 800);
   };
 
-  // Function to clear the timer if released early
   const handlePressEnd = () => {
     if (timerRef.current) {
       clearTimeout(timerRef.current);
@@ -208,18 +204,14 @@ const ServicesSection = () => {
             className="service-card" 
             style={{ 
                 backgroundImage: `url(${service.image})`,
-                // Disable default context menu on mobile so long press works for us
                 touchAction: 'manipulation',
                 userSelect: 'none'
             }}
-            // Mouse Events (Desktop)
             onMouseDown={() => handlePressStart(service.slug)}
             onMouseUp={handlePressEnd}
             onMouseLeave={handlePressEnd}
-            // Touch Events (Mobile)
             onTouchStart={() => handlePressStart(service.slug)}
             onTouchEnd={handlePressEnd}
-            // Prevent default context menu on long press
             onContextMenu={(e) => e.preventDefault()}
           >
             <div className="card-overlay">

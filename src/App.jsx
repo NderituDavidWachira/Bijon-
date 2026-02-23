@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// Ensure these are installed in your package.json: react-router-dom, react-icons
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { 
   FaInstagram, FaWhatsapp, FaBars, FaTimes, FaMapMarkerAlt, 
@@ -8,10 +7,10 @@ import {
 
 import './App.css';
 
-// Ensure your image path is correct relative to this file
+
 import logoImage from './assets/Images/Bijon Logo.jpg'; 
 
-// Import your page components
+
 import Home from './Home';       
 import About from './About';    
 import Services from './Services';       
@@ -36,13 +35,10 @@ const Navbar = () => {
               style={{ marginRight: '15px', height: '70px', width: 'auto' }} 
             />
             
-            {/* --- HEADER TEXT CONTAINER --- */}
-            {/* 1. We set width to 'max-content' so the container shrinks to fit the widest item (the Email). */}
-            {/* 2. We use flex column to stack the rows. */}
+           
             <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: 'max-content' }}>
                 
-                {/* ROW 1: BiJON */}
-                {/* 'justify-content: space-between' forces the letters to touch the Left and Right edges exactly. */}
+              
                 <div style={{ 
                     display: 'flex', 
                     justifyContent: 'space-between',
@@ -61,8 +57,6 @@ const Navbar = () => {
                     <span>N</span>
                 </div>
                 
-                {/* ROW 2: BRAND AFRICA LTD */}
-                {/* Spaced by word to fill the width */}
                 <div style={{ 
                     display: 'flex', 
                     justifyContent: 'space-between',
@@ -80,9 +74,7 @@ const Navbar = () => {
                     <span>LTD.</span>
                 </div>
 
-                {/* ROW 3: Phone Number */}
-                {/* To make the phone number end at the exact same point as the email, 
-                    we treat it as a flex row and space the segments out slightly. */}
+                
                 <div style={{ 
                     display: 'flex', 
                     justifyContent: 'space-between', 
@@ -102,9 +94,7 @@ const Navbar = () => {
                     <span>279</span>
                 </div>
 
-                {/* ROW 4: Email */}
-                {/* This is the "Anchor". It sets the natural width of the container. 
-                    Everything else stretches to match this line. */}
+              
                 <div style={{ 
                     display: 'flex', 
                     alignItems: 'center',

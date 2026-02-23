@@ -1,10 +1,9 @@
-/* 1. IMPORT FONTS */
+
 @import "https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap";
 
 :root {
-  /* COLORS */
-  --primary: #E64A19;   /* Burnt Orange */
-  --secondary: #FBC02D; /* Amber/Yellow */
+  --primary: #E64A19;  
+  --secondary: #FBC02D;
   
   --text-dark: #1a1a1a;
   --text-gray: #555;
@@ -42,7 +41,6 @@ ul {
   list-style: none;
 }
 
-/* --- NAVBAR STYLING (UPDATED FOR 80% COVERAGE) --- */
 
 .navbar {
   width: 100%;
@@ -159,8 +157,6 @@ ul {
   color: #fff; 
   text-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
-
-/* --- BUTTONS --- */
 
 .btn-outline {
   background: transparent;
@@ -531,14 +527,10 @@ ul {
     padding: 6px 5%;
     font-size: 0.8rem;
   }
-
-  /* MOBILE NAVBAR FIX */
   .navbar-main {
     padding: 10px 5%; 
-    /* Mobile header stays transparent so the gradient is visible */
   }
 
-  /* Smaller Mobile Logo */
   .logo {
     font-size: 0.95rem; 
     gap: 6px;
@@ -554,13 +546,12 @@ ul {
     font-size: 1.2rem; 
   }
 
-  /* DROPDOWN MENU */
   .nav-links {
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
-    background: #fff; /* White background for dropdown content */
+    background: #fff; 
     flex-direction: column;
     gap: 20px;
     padding: 0;
@@ -574,11 +565,9 @@ ul {
     max-height: 400px;
     padding: 25px 0;
   }
-  
-  /* Reset link colors for the white mobile dropdown */
   .nav-links a {
       color: #333; 
-      text-shadow: none; /* Remove shadow on white background */
+      text-shadow: none; 
   }
   
   .nav-links a:hover {

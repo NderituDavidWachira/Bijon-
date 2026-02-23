@@ -1,11 +1,10 @@
 import React from 'react';
 import { FaEye, FaPencilRuler, FaDesktop, FaChartLine } from 'react-icons/fa';
 
-// Import Images
 import slide1 from './assets/Images/back.jpeg'; 
 import bjImage from './assets/Images/bj.jpg';
 
-// Import Client Images
+
 import client1 from './assets/Images/Clients/C1-01-2-1024x1024.jpg';
 import client2 from './assets/Images/Clients/C2-01.jpg';
 import client3 from './assets/Images/Clients/C3-01.jpg';
@@ -44,12 +43,9 @@ const About = () => {
   return (
     <div className="about-container">
       
-      {/* CSS STYLES */}
       <style>{`
-        /* --- GLOBAL & UTILS --- */
+       
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        
-        /* --- HERO SECTION --- */
         .hero-static {
           position: relative;
           min-height: 80vh; /* Adjust height as needed */
@@ -61,8 +57,6 @@ const About = () => {
           color: #fff;
           padding: 60px 0;
         }
-
-        /* THE GREY OVERLAY */
         .hero-overlay {
           position: absolute;
           top: 0;
@@ -73,7 +67,6 @@ const About = () => {
           z-index: 1;
         }
 
-        /* SPLIT LAYOUT */
         .hero-split-layout {
           position: relative;
           z-index: 2; /* Ensures content sits ON TOP of overlay */
@@ -87,7 +80,6 @@ const About = () => {
         .hero-text-left { flex: 1; }
         .hero-image-right { flex: 1; display: flex; justify-content: flex-end; }
         
-        /* Image styling for the right side */
         .hero-image-right img {
           max-width: 100%;
           border-radius: 10px;
@@ -95,7 +87,6 @@ const About = () => {
           border: 5px solid rgba(255,255,255,0.1);
         }
 
-        /* Typography */
         .hero-tagline { color: #fca311; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; display: block; margin-bottom: 10px; }
         .hero-text-left h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px; font-family: 'Montserrat', sans-serif; }
         .hero-text-left p { font-size: 1.1rem; line-height: 1.6; color: #ddd; margin-bottom: 30px; }
@@ -106,7 +97,6 @@ const About = () => {
         }
         .btn-white:hover { background-color: #fca311; color: #000; }
 
-        /* --- INTRO SECTION --- */
         .section-intro { padding: 80px 0; background-color: #fff; }
         .section-title-center { text-align: center; font-size: 2.2rem; margin-bottom: 50px; font-weight: 800; color: #333; }
         
@@ -116,7 +106,6 @@ const About = () => {
         .feature-text h3 { font-size: 1.3rem; margin-bottom: 10px; color: #222; }
         .feature-text p { color: #666; line-height: 1.6; }
 
-        /* --- PARTNERS SECTION --- */
         .partners-section { padding: 60px 0; background-color: #f9f9f9; border-top: 1px solid #eee; }
         .section-header-center { text-align: center; margin-bottom: 40px; }
         .section-tag { background: #fca311; color: #000; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; }
@@ -125,7 +114,6 @@ const About = () => {
         .partner-card img { width: 100%; filter: grayscale(100%); opacity: 0.6; transition: 0.3s; }
         .partner-card img:hover { filter: grayscale(0%); opacity: 1; transform: scale(1.05); }
 
-        /* --- RESPONSIVE --- */
         @media (max-width: 992px) {
           .hero-split-layout { flex-direction: column; text-align: center; }
           .hero-image-right { justify-content: center; margin-top: 30px; }
@@ -138,14 +126,12 @@ const About = () => {
         }
       `}</style>
 
-      {/* --- HERO SECTION --- */}
       <section className="hero-static" style={{ backgroundImage: `url(${slide1})` }}>
-        {/* THIS IS THE OVERLAY DIV */}
+       
         <div className="hero-overlay"></div>
         
         <div className="container hero-split-layout">
            
-           {/* LEFT SIDE */}
            <div className="hero-text-left">
               <span className="hero-tagline">Welcome to Bijon</span>
               <h1>About Us</h1>
@@ -161,15 +147,12 @@ const About = () => {
               </a>
            </div>
 
-           {/* RIGHT SIDE */}
            <div className="hero-image-right">
               <img src={bjImage} alt="Bijon Brand" />
            </div>
 
         </div>
       </section>
-
-      {/* --- INTRO SECTION --- */}
       <section className="section-intro">
         <div className="container">
           <div className="intro-header">
@@ -209,7 +192,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* --- PARTNERS SECTION --- */}
       <section className="partners-section">
         <div className="container">
           <div className="section-header-center">

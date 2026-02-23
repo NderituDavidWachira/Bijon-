@@ -5,7 +5,6 @@ import { FaWhatsapp, FaArrowLeft } from 'react-icons/fa';
 import { servicesData } from './data/servicesData';
 import './Service.css'; 
 
-// --- CAROUSEL COMPONENT ---
 const ImageCarousel = ({ images, placeholder }) => {
   const [index, setIndex] = useState(0);
 
@@ -40,7 +39,7 @@ const ImageCarousel = ({ images, placeholder }) => {
 };
 
 const ServiceDetail = () => {
-  // Handles both :slug and :id to prevent "Service not found" errors
+
   const { slug, id } = useParams(); 
   const routeId = slug || id; 
 
@@ -81,7 +80,6 @@ const ServiceDetail = () => {
       
       <div className="svc-header" style={{ height: '15vh', minHeight: '250px' }}>
          
-         {/* 1. Video Background */}
          <video 
           autoPlay 
           loop 
@@ -93,10 +91,8 @@ const ServiceDetail = () => {
           <source src="/hero.video.mp4" type="video/mp4" />
         </video>
 
-         {/* 2. Dark Overlay */}
          <div className="svc-overlay"></div>
 
-         {/* 3. Header Content */}
          <div className="svc-header-content">
             <motion.h1
               initial={{ opacity: 0, y: -20 }}
@@ -115,7 +111,6 @@ const ServiceDetail = () => {
          </div>
       </div>
 
-      {/* --- CONTENT SECTION --- */}
       <div className="svc-content-container">
         <motion.div 
           className="svc-detail-view"
@@ -123,14 +118,12 @@ const ServiceDetail = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          {/* Back Button */}
           <Link to="/services">
             <button className="svc-btn-back">
               <FaArrowLeft /> Back to Services
             </button>
           </Link>
 
-          {/* Sub Items Grid */}
           <div className="svc-sub-grid">
             {service.items.map((item, index) => (
               <motion.div 
